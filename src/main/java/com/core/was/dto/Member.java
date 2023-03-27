@@ -38,31 +38,32 @@ public class Member implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return this.loginPassword;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        // TODO Auto-generated method stub
+        return this.loginId;
     }
-
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        // TODO Auto-generated method stub
+        return true;
     }
-
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        // TODO Auto-generated method stub
+        return true;
     }
-
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        // TODO Auto-generated method stub
+        return true;
     }
-
     @Override
     public boolean isEnabled() {
-        return false;
+        // TODO Auto-generated method stub
+        return true;
     }
 }
