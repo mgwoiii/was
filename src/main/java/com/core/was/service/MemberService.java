@@ -39,7 +39,15 @@ public class MemberService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
+
+        Member selectMember = new Member();
+        selectMember.setLoginId(loginId);
+        Member member = memberMapper.readMember(selectMember);
+        if (member == null){
+            throw new UsernameNotFoundException("유저 정보가 없습니다.");
+
+        }
+        return member;
     }
 }

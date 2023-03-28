@@ -9,4 +9,10 @@
             ( login_id , login_password ,email ,mobile_no, name ,user_auth, create_time ,delete_yn)
         VALUES ( #{loginId} , #{loginPassword} , #{email} ,"tempTest", "name", "member", now() , "N" );
     </insert>
+
+    <select id="readMember" resultType="com.core.was.dto.Member">
+        select *
+        from member
+        where login_id = #{loginId}
+    </select>
 </mapper>
