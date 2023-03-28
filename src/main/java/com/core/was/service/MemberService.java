@@ -26,10 +26,10 @@ public class MemberService implements UserDetailsService {
     public void createUser(Member member) {
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
         member.setLoginPassword(passwordEncoder.encode(member.getPassword()));
 
         try {
-            log.info("member :: {}", member);
             memberMapper.createUser(member);
 
         }catch(Exception e) {
