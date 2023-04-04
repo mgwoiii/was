@@ -54,4 +54,16 @@ public class MemberService implements UserDetailsService {
         }
         return member;
     }
+
+    public Integer checkLoginId(Member member) {
+
+        Member memberResult = memberMapper.readMember(member);
+
+        if(memberResult != null){
+            return 0;
+        }else{
+            return 1;
+        }
+
+    }
 }
