@@ -27,5 +27,11 @@ public class LonginController {
 
     return "res Return";
     }
+    @GetMapping("/check")
+    public String check(){
+    log.info("test check ::: {}", "Testcheck");
+
+    return "res check";
+    }
 
 }

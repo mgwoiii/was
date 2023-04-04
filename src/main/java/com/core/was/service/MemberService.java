@@ -12,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -42,11 +44,13 @@ public class MemberService implements UserDetailsService {
     public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
 
         Member selectMember = new Member();
+
         selectMember.setLoginId(loginId);
+
         Member member = memberMapper.readMember(selectMember);
+
         if (member == null){
             throw new UsernameNotFoundException("유저 정보가 없습니다.");
-
         }
         return member;
     }
