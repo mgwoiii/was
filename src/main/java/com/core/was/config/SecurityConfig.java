@@ -51,6 +51,38 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .logoutSuccessUrl("/") // 로그아웃 성공시 리다이렉트 주소
                     .invalidateHttpSession(true) // 세션날리기
                     .logoutSuccessHandler(logoutSuccessHandler());
+
+
+        /*
+        *  http.httpBasic()
+                .and()
+                    .csrf().disable()
+                .authorizeRequests()
+                    .antMatchers("/**").permitAll()
+                .and()
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider),
+                        UsernamePasswordAuthenticationFilter.class);
+
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.httpBasic()
+                .and()
+                    .formLogin()
+//                    .loginPage("/api/login/check")
+                    .loginProcessingUrl("/api/login/action")
+                    .usernameParameter("loginId")
+                    .passwordParameter("loginPassword")
+                    .successHandler(loginSuccessHandler())
+                    .failureHandler(loginFailureHandler())
+//                    .defaultSuccessUrl("/api/login/test", true)
+                .and()
+                    .logout()
+                    .logoutUrl("/api/login/logout")
+//                    .logoutSuccessUrl("/") // 로그아웃 성공시 리다이렉트 주소
+                    .invalidateHttpSession(true) // 세션날리기
+                    .logoutSuccessHandler(logoutSuccessHandler());
+        *
+        * */
     }
 
 
